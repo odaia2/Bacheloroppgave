@@ -1,0 +1,98 @@
+/* Generell styling */
+body {
+    background-image: url('../../images/bachlor.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Holder bildet på plass når du scroller */
+    color: white; /* Sikrer at tekst er lesbar */
+  }
+  
+  /* Legg til en overleggseffekt for bedre kontrast */
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Halvtransparent mørk overlegg */
+    z-index: -1;
+  }
+  
+  /* Navbar */
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+   
+    margin: auto;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+  }
+  
+  nav button {
+    background: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    
+  }
+  
+  .hero h1 {
+    text-align: center;
+  }
+  .hero p{
+    text-align: center;
+  }
+  
+  
+ 
+  
+  /* Informasjonseksjon */
+  .info-section {
+    background: white;
+    color: black;
+    padding: 40px;
+    text-align: left;
+    max-width: 900px;
+    margin: 50px auto;
+    border-radius: 10px;
+  }
+  
+  .info-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .info-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .info-section li {
+    margin: 10px 0;
+  }
+  
+  /* Start-knapp */
+  .start-btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .start-btn:hover {
+    background-color: darkgreen;
+  }
+  
