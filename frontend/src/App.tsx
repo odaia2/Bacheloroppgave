@@ -1,16 +1,20 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Nav from "./components/Nav";
 import Header from "./components/Header";
-import "./Style/Style.css"; // Importerer CSS
+import Contact from "./components/Contact";
+import "./Style/Style.css";
 
 function App() {
   return (
-    <>
+    <Router>
       <Nav />
-      <Header />
-      <HomePage />
-    </>
+      <Routes>
+        <Route path="/" element={<><Header /><HomePage /></>} />
+        <Route path="/kontakt" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 }
 
