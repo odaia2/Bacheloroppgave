@@ -1,23 +1,10 @@
 /* Generell styling */
 body {
-    background-image: url('../../images/bachlor.jpeg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Holder bildet på plass når du scroller */
     color: white; /* Sikrer at tekst er lesbar */
-  }
-  
-  /* Legg til en overleggseffekt for bedre kontrast */
-  body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Halvtransparent mørk overlegg */
-    z-index: -1;
+    background-color: white;
   }
   
   /* Navbar */
@@ -26,9 +13,10 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-   
+    background: linear-gradient(135deg , #006680, #004b6b,#002147);
     margin: auto;
   }
+
   
   nav a {
     color: white;
@@ -43,56 +31,109 @@ body {
     
   }
   
-  .hero h1 {
-    text-align: center;
-  }
-  .hero p{
-    text-align: center;
-  }
   
   
+  .hero-text{
+    
+    padding: 40px;
+  }
  
   
   /* Informasjonseksjon */
-  .info-section {
-    background: white;
-    color: black;
-    padding: 40px;
-    text-align: left;
-    max-width: 900px;
-    margin: 50px auto;
-    border-radius: 10px;
-  }
-  
-  .info-section h2 {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .info-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .info-section li {
-    margin: 10px 0;
-  }
-  
-  /* Start-knapp */
-  .start-btn {
-    display: block;
-    width: 200px;
-    margin: 20px auto;
-    padding: 10px;
-    background-color: green;
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .start-btn:hover {
-    background-color: darkgreen;
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ebeced; /* Lys bakgrunn */
+  color: black;
+  padding: 40px;
+  height: 100vh; /* Full skjermhøyde */
+}
+
+/* Wrapper for info */
+.info-container {
+  background: #ebeced;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Justering av teksten */
+.info-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Større tittel */
+.info-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Listeinnhold */
+.info-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-container li {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+/* Start-knapp */
+.start-btn {
+  display: block;
+  width: 200px;
+  margin: 20px auto 0 auto;
+  padding: 10px;
+  background-color: #3D8675; /* Samme farge som på bildet */
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-btn:hover {
+  background-color: #2C6759;
+}
+
+/* Knapp for å scrolle ned */
+.scroll-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Hover-effekt */
+.scroll-btn:hover {
+  opacity: 0.8;
+}
+
+
+  header{
+    height: 100vh; /* Full skjermhøyde */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../images/bachlor.jpeg'); /* Bakgrunnsbilde for header */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
