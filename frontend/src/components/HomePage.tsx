@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate(); // Henter navigasjonsfunksjonen
+
+  const startQuestionnaire = () => {
+    navigate("/questions"); // Navigerer til spørreskjemaet
+  };
+
   return (
     <main id="homepage">
       <div className="info-container">
@@ -25,7 +32,7 @@ const HomePage = () => {
             og i beslutningsprosessen om kroppssammensetning i sport.
           </p>
           <p><strong>Når du er klar, trykk «Start nå» for å starte prosessen.</strong></p>
-          <button className="start-btn">Start nå</button>
+          <button className="start-btn" onClick={startQuestionnaire}>Start nå</button>
         </div>
       </div>
     </main>

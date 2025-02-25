@@ -1,21 +1,31 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
-import Nav from "./components/Nav";
-import Header from "./components/Header";
+import Questionnaire from "./components/Questionnaire";
 import Contact from "./components/Contact";
-import "./Style/Style.css";
+import Summary from "./components/Summary";
+import Layout from "./components/Layout"; // Legger til Layout-komponent
+import Header from "./components/Header";
 
 function App() {
   return (
     <Router>
-      <Nav />
-      <Routes>
+      <Layout> 
+        <Routes>
         <Route path="/" element={<><Header /><HomePage /></>} />
-        <Route path="/kontakt" element={<Contact />} />
-      </Routes>
+          <Route path="/questions" element={<Questionnaire />} />
+          <Route path="/summary" element={<Summary />} />
+          <Route path="/kontakt" element={<Contact />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 }
 
 export default App;
+
+
+
+
+
+

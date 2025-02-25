@@ -1,21 +1,27 @@
 /* Generell styling */
 body {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white; /* Sikrer at tekst er lesbar */
-    background-color: white;
+  
+  color: white; /* Sikrer at tekst er lesbar */
+    font-family: "Arial", sans-serif;
+    background-color: #f8f9fa;
+    width: 100%;
+    margin: 0;
+   padding: 0;
   }
   
-  /* Navbar */
+  
+
+
+  /* Nav */
   nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
     background: linear-gradient(135deg , #006680, #004b6b,#002147);
-    margin: auto;
+    
   }
+  
 
   
   nav a {
@@ -136,4 +142,161 @@ main {
     background-position: center;
     background-repeat: no-repeat;
   }
-  
+
+
+.questionnaire-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Sørger for at innholdet er midt på siden */
+    background-color: #f8f9fa;
+    width: 100%;
+}
+
+
+/* Container for spørreskjemaet */
+.questionnaire-container {
+  width: 70%;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: auto; /* Sørger for at den er midtstilt */
+}
+
+
+/* Fremdriftsindikator */
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  margin: 20px 0;
+}
+
+.progress {
+  height: 100%;
+  background-color: #3D8675; /* Grønn farge lik bildet */
+  transition: width 0.3s ease-in-out;
+}
+
+/* Spørsmålstekst */
+.question-text {
+  font-size: 22px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Valgalternativer */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  padding: 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s ease;
+  border: 2px solid #ccc;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.option-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.option-btn.selected {
+  background-color: #3D8675; /* Grønn farge lik bildet */
+  color: white;
+  border-color: #3D8675;
+}
+
+/* Advarselsboks */
+.warning-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.warning-box.red {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 2px solid #f5c6cb;
+}
+
+.warning-box.yellow {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 2px solid #ffeeba;
+}
+
+/* Navigasjon */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+/* Navigasjonsknapper */
+.nav-btn {
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #3D8675;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: #2C6759;
+}
+
+
+.summary-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.summary-container {
+  background:black;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 650px;
+  width: 100%;
+}
+
+.summary-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.summary-container li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

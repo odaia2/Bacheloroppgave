@@ -1,0 +1,169 @@
+{
+    "pages": [
+      {
+        "title": "Side 1 – Forberedende trinn for vurdering av kroppssammensetning (BC)",
+        "questions": [
+          {
+            "text": "Er utøveren over 18 år?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Konkurrerer utøveren på høyt nasjonalt nivå eller høyere?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Er det bekymringer rundt spiseatferd eller kroppsbilde?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Har utøveren tilgang til et helse- og prestasjonsteam?",
+            "options": ["Ja", "Delvis", "Nei"]
+          },
+          {
+            "text": "Er det en godt begrunnet årsak til målingen?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Har du vurdert om utøveren er mentalt klar for målingen?",
+            "options": ["Ja, ingen bekymringer", "Ja, men det er bekymringer", "Nei"]
+          }
+        ]
+      },
+      {
+        "title": "Side 2 – Oppstart av kroppssammensetningsvurdering",
+        "questions": [
+          {
+            "text": "Er prosessen og rettighetene tydelig forklart for utøveren?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Er målingen planlagt i tilknytning til andre vurderinger?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Har utøveren og støtteapparatet fått opplæring?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Er det presisert at målingen er frivillig?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Er skriftlig samtykke innhentet?",
+            "options": ["Ja", "Nei"]
+          }
+        ]
+      },
+      {
+        "title": "Side 3 – Valg av metode",
+        "questions": [
+          {
+            "text": "Er den mest passende målemetoden valgt?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Er personen som utfører målingen kvalifisert?",
+            "options": ["Ja", "Nei"]
+          }
+        ]
+      },
+      {
+        "title": "Side 4 – Datainnsamling",
+        "questions": [
+          {
+            "text": "Har utøveren fått informasjon om forberedelser og prosedyre?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Følger du en standardisert protokoll?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Har utøveren fått mulighet til å ha med en ledsager?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Blir vurderingen gjort i et privat rom?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Er målefeilen kjent?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Er det nok tid satt av til målingen?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Har dere sikre prosesser for datahåndtering?",
+            "options": ["Ja", "Nei"]
+          }
+        ]
+      },
+      {
+        "title": "Side 5 – Tolkning av data",
+        "questions": [
+          {
+            "text": "Er utøveren informert om at resultatene ikke gis umiddelbart?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Blir resultatene analysert med andre relevante målinger?",
+            "options": ["Ja", "Nei"]
+          }
+        ]
+      },
+      {
+        "title": "Side 6 – Rapportering av data",
+        "questions": [
+          {
+            "text": "Blir data presentert med usikkerhetsestimat?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Unngår dere å sammenligne med normbaserte referanser?",
+            "options": ["Ja", "Nei"]
+          }
+        ]
+      },
+      {
+        "title": "Side 7 – Deling og kommunikasjon av data",
+        "questions": [
+          {
+            "text": "Kan utøveren bestemme hvem som får tilgang til resultatene?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Blir resultatene delt privat med utøveren?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Er neste steg etter målingen planlagt?",
+            "options": ["Ja", "Nei"]
+          }
+        ]
+      },
+      {
+        "title": "Side 8 – Overvåking",
+        "questions": [
+          {
+            "text": "Er det en avtalt plan for nye målinger?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Overskrider målefrekvensen 4-6 målinger i året?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Har utøveren fortsatt oppfølging fra sitt tverrfaglige team?",
+            "options": ["Ja", "Nei"]
+          },
+          {
+            "text": "Revurderer du om utøveren er mentalt klar før nye målinger?",
+            "options": ["Ja", "Nei"]
+          }
+        ]
+      }
+    ]
+  }
+  
