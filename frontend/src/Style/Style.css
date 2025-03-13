@@ -6,7 +6,7 @@ body {
     background-color: #f8f9fa;
     width: 100%;
     margin: 0;
-   padding: 0;
+    padding: 0;
   }
   
   
@@ -19,8 +19,7 @@ body {
     align-items: center;
     padding: 20px 40px;
     background: linear-gradient(135deg , #006680, #004b6b,#002147);
-    
-  }
+     }
   
 
   
