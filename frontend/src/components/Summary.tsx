@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../Style/Style.css";
+import "../Style/Summary.css"; // Importer CSS-filen
+
 
 const Summary: React.FC = () => {
   const location = useLocation();

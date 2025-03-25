@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import sanityClient from '../../sanity/sanityClient'
 import { useNavigate } from 'react-router-dom'
+import "../Style/Questionnaire.css"; // Importer CSS-filen
+
 
 interface Question {
   question: string

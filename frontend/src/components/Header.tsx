@@ -1,4 +1,5 @@
 import React from "react";
+import "../Style/Header.css"; // Importer CSS-filen
 
 const Header = () => {
   const scrollToSection = () => {

@@ -1,5 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../Style/HomePage.css"; // Importer CSS-filen
+
+
 
 const HomePage = () => {
   const navigate = useNavigate(); // Henter navigasjonsfunksjonen
