@@ -4,15 +4,17 @@ import HomePage from "./components/HomePage";
 import Questionnaire from "./components/Questionnaire";
 import Contact from "./components/Contact";
 import Summary from "./components/Summary";
-import Layout from "./components/Layout"; // Legger til Layout-komponent
+import Layout from "./components/Layout";
 import Header from "./components/Header";
+import RoleSelect from "./components/RoleSelect"; // 👈 Legg til denne
 
 function App() {
   return (
     <Router>
-      <Layout> 
+      <Layout>
         <Routes>
-        <Route path="/" element={<><Header /><HomePage /></>} />
+          <Route path="/" element={<><Header /><HomePage /></>} />
+          <Route path="/velg-rolle" element={<RoleSelect />} /> {/* 👈 NY SIDE */}
           <Route path="/questions" element={<Questionnaire />} />
           <Route path="/summary" element={<Summary />} />
           <Route path="/kontakt" element={<Contact />} />
@@ -23,9 +25,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
