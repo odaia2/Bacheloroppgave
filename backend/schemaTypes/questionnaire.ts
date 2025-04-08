@@ -1,39 +1,75 @@
-import { defineType, defineField } from 'sanity'
+import { defineType } from "sanity";
 
 export default defineType({
-  name: 'questionnaire',
-  title: 'Questionnaire',
-  type: 'document',
+  name: "questionnaire",
+  title: "Spørreskjema",
+  type: "document",
   fields: [
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    }),
-    defineField({
-      name: 'questions',
-      title: 'Questions',
-      type: 'array',
+    {
+      name: "title",
+      title: "Tittel",
+      type: "string",
+    },
+    {
+      name: "questions",
+      title: "Spørsmål",
+      type: "array",
       of: [
-        defineField({
-          name: 'questionGroup',
-          title: 'Question Group',
-          type: 'object',
+        {
+          type: "object",
           fields: [
-            defineField({
-              name: 'question',
-              title: 'Question',
-              type: 'string',
-            }),
-            defineField({
-              name: 'options',
-              title: 'Options',
-              type: 'array',
-              of: [{ type: 'string' }],
-            }),
+            {
+              name: "question",
+              title: "Spørsmålstekst",
+              type: "string",
+            },
+            {
+              name: "options",
+              title: "Svaralternativer",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    {
+                      name: "label",
+                      title: "Svartekst (f.eks. Ja, Nei)",
+                      type: "string",
+                    },
+                    {
+                      name: "value",
+                      title: "Intern verdi (f.eks. yes, no)",
+                      type: "string",
+                    },
+                    {
+                      name: "responseType",
+                      title: "Respons-type",
+                      type: "string",
+                      options: {
+                        list: [
+                          { title: "Grønn (fortsett)", value: "green" },
+                          { title: "Gul (forsiktig)", value: "yellow" },
+                          { title: "Rød (stopp)", value: "red" },
+                        ],
+                      },
+                    },
+                    {
+                      name: "feedback",
+                      title: "Tilbakemelding / melding",
+                      type: "string",
+                    },
+                    {
+                      name: "articleUrl",
+                      title: "Les mer-lenke (valgfritt)",
+                      type: "url",
+                    },
+                  ],
+                },
+              ],
+            },
           ],
-        }),
+        },
       ],
-    }),
+    },
   ],
-})
+});

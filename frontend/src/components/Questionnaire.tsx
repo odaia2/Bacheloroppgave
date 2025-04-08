@@ -1,84 +1,124 @@
-import { useEffect, useState } from 'react'
-import sanityClient from '../../sanity/sanityClient'
-import { useNavigate } from 'react-router-dom'
-import "../Style/Questionnaire.css"; // Importer CSS-filen
+import { useEffect, useState } from "react";
+import sanityClient from "../../sanity/sanityClient";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import "../Style/Questionnaire.css";
 
-
-interface Question {
-  question: string
-  options: string[]
+interface Option {
+  label: string;
+  value: string;
+  responseType: "green" | "yellow" | "red";
+  feedback: string;
+  articleUrl?: string;
 }
 
-interface QuestionnairePage {
-  title: string
-  questions: Question[]
+interface Question {
+  question: string;
+  options: Option[];
+}
+
+interface Page {
+  title: string;
+  questions: Question[];
 }
 
 const Questionnaire = () => {
-  const [data, setData] = useState<QuestionnairePage[]>([])
-  const [pageIndex, setPageIndex] = useState(0)
-  const [questionIndex, setQuestionIndex] = useState(0)
-  const [answers, setAnswers] = useState<{ [key: string]: string }>({})
-  const navigate = useNavigate()
+  const [pages, setPages] = useState<Page[]>([]);
+  const [pageIndex, setPageIndex] = useState(0);
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [answers, setAnswers] = useState<{ [key: string]: string }>({});
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     sanityClient
-      .fetch(`*[_type == "questionnaire"]{title, questions[]{question, options}}`)
-      .then((res) => {
-        console.log("✅ Data:", res)
-        setData(res)
+      .fetch(`*[_type == "questionnaire"]{title, questions[]{question, options[]{label, value, responseType, feedback, articleUrl}}}`)
+      .then((res: Page[]) => {
+        setPages(res);
       })
-      .catch((err) => console.error("Feil ved henting av data:", err))
-  }, [])
+      .catch((err) => console.error("Feil ved henting:", err));
+  }, []);
 
-  if (data.length === 0) return <p>Laster spørsmål...</p>
+  if (!pages.length) return <p>Laster spørsmål...</p>;
 
-  const currentPage = data[pageIndex]
-  const currentQuestion = currentPage.questions[questionIndex]
+  const currentPage = pages[pageIndex];
+  const currentQuestion = currentPage.questions[questionIndex];
+  const key = `${pageIndex}-${questionIndex}`;
 
-  const handleAnswer = (answer: string) => {
-    const key = `${pageIndex}-${questionIndex}`
-    setAnswers((prev) => ({ ...prev, [key]: answer }))
-  }
+  const handleAnswer = (option: Option) => {
+    setAnswers((prev) => ({ ...prev, [key]: option.label }));
+    setSelectedOption(option);
+  };
 
   const next = () => {
-    const isLastQuestion = questionIndex + 1 >= currentPage.questions.length
-    const isLastPage = pageIndex + 1 >= data.length
+    setSelectedOption(null);
+    const isLastQuestion = questionIndex + 1 >= currentPage.questions.length;
+    const isLastPage = pageIndex + 1 >= pages.length;
 
     if (!isLastQuestion) {
-      setQuestionIndex((prev) => prev + 1)
+      setQuestionIndex((prev) => prev + 1);
     } else if (!isLastPage) {
-      setPageIndex((prev) => prev + 1)
-      setQuestionIndex(0)
+      setPageIndex((prev) => prev + 1);
+      setQuestionIndex(0);
     } else {
-      navigate('/summary', { state: { answers } })
+      navigate("/summary", { state: { answers, pages } });
+
     }
-  }
+  };
+
+  const prev = () => {
+    if (questionIndex > 0) {
+      setQuestionIndex((prev) => prev - 1);
+    } else if (pageIndex > 0) {
+      setPageIndex((prev) => prev - 1);
+      setQuestionIndex(pages[pageIndex - 1].questions.length - 1);
+    }
+  };
 
   return (
     <div className="questionnaire-container">
       <h1>{currentPage.title}</h1>
-      <h2>{currentQuestion.question}</h2>
+      <h2>{`Spørsmål ${questionIndex + 1} av ${currentPage.questions.length}`}</h2>
+
+      <p className="question-instruction">
+        Før en vurdering av kroppssammensetning gjennomføres, svar på følgende spørsmål:
+      </p>
+
+      <div className="question-text">{currentQuestion.question}</div>
 
       <div className="options">
-        {currentQuestion.options.map((option, index) => (
+        {currentQuestion.options.map((option, idx) => (
           <button
-            key={index}
-            className={`option-button ${
-              answers[`${pageIndex}-${questionIndex}`] === option ? 'selected' : ''
-            }`}
+            key={idx}
             onClick={() => handleAnswer(option)}
+            className={`option-button ${selectedOption?.value === option.value ? `selected ${option.responseType}` : ""}`}
           >
-            {option}
+            {option.label}
           </button>
         ))}
       </div>
 
-      <button className="next-button" onClick={next}>
-        Neste →
-      </button>
-    </div>
-  )
-}
+      {selectedOption && (
+        <div className={`feedback-box ${selectedOption.responseType}`}>
+          <strong>{selectedOption.feedback}</strong>
+          {selectedOption.articleUrl && (
+            <a href={selectedOption.articleUrl} className="read-more-btn" target="_blank" rel="noopener noreferrer">
+              Les mer
+            </a>
+          )}
+        </div>
+      )}
 
-export default Questionnaire
+      <div className="navigation-buttons">
+        <button onClick={prev} className="nav-icon-btn" disabled={pageIndex === 0 && questionIndex === 0}>
+          <FaArrowLeft />
+        </button>
+        <button onClick={next} className="nav-icon-btn" disabled={!selectedOption}>
+          <FaArrowRight />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Questionnaire;
