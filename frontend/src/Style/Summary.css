@@ -75,3 +75,31 @@
 .summary-home-button:hover {
   background-color: #2c6759;
 }
+
+
+.user-answer.green {
+  color: #1f684f;
+  background-color: #e6f7f1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.user-answer.red {
+  color: #b71c1c;
+  background-color: #fdecea;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.user-answer.yellow {
+  color: #856404;
+  background-color: #fff9db;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 4px;
+}

@@ -32,7 +32,21 @@ const Questionnaire = () => {
 
   useEffect(() => {
     sanityClient
-      .fetch(`*[_type == "questionnaire"]{title, questions[]{question, options[]{label, value, responseType, feedback, articleUrl}}}`)
+      .fetch(
+        `*[_type == "questionnaire"] | order(title asc){
+          title,
+          questions[]{
+            question,
+            options[]{
+              label,
+              value,
+              responseType,
+              feedback,
+              articleUrl
+            }
+          }
+        }`
+      )
       .then((res: Page[]) => {
         setPages(res);
       })
@@ -62,7 +76,6 @@ const Questionnaire = () => {
       setQuestionIndex(0);
     } else {
       navigate("/summary", { state: { answers, pages } });
-
     }
   };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../Style/Summary.css";
-import "../Style/Style.css"
+import "../Style/Style.css";
 
 interface Option {
   label: string;
@@ -52,10 +52,14 @@ const Summary: React.FC = () => {
                 const key = `${pageIndex}-${qIndex}`;
                 const answer = answers[key];
 
+                // Finn valgte alternativ
+                const selectedOption = q.options.find(opt => opt.label === answer);
+                const responseClass = selectedOption?.responseType || "";
+
                 return (
                   <li key={qIndex}>
                     <strong>{qIndex + 1}.</strong> {q.question}
-                    <div className="user-answer">→ {answer}</div>
+                    <div className={`user-answer ${responseClass}`}>→ {answer}</div>
                   </li>
                 );
               })}
