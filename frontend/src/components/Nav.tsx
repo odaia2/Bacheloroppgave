@@ -8,6 +8,14 @@ const Nav = () => {
       <div>
         <Link to="/">Hjem</Link>
         <Link to="/kontakt">Kontakt oss</Link>
+        <a
+          href={"#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="language-link"
+        >
+          🌐
+        </a>
       </div>
     </nav>
   );

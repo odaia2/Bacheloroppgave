@@ -90,6 +90,17 @@ const Questionnaire = () => {
 
   return (
     <div className="questionnaire-container">
+
+      <div className="progress-bar-container">
+        <div
+          className="progress-bar-fill"
+          style={{
+            width: `${((questionIndex + 1) / currentPage.questions.length) * 100}%`,
+          }}
+        ></div>
+      </div>
+
+
       <h1>{currentPage.title}</h1>
       <h2>{`Spørsmål ${questionIndex + 1} av ${currentPage.questions.length}`}</h2>
 
