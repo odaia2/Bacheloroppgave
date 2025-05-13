@@ -40,3 +40,62 @@ nav a.language-link {
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   padding-left: 20px;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(135deg, #006680, #004b6b, #002147);
+  color: white;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+
+
+.lang-wrapper {
+  position: relative;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding-left: 16px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.lang-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  color: #003b6f;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  font-size: 14px;
+  z-index: 100;
+}
+
+.lang-menu div {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.lang-menu div:hover {
+  background-color: #f0f0f0;
+}
+

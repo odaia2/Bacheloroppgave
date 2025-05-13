@@ -1,3 +1,4 @@
+// src/components/Layout.tsx
 import React from "react";
 import Nav from "./Nav";
 
@@ -5,11 +6,13 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-    <Nav />
-    {children}
+      <Nav />
+      {children}
     </>
   );
-}
+};
+
+export default Layout;

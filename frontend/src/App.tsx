@@ -1,3 +1,4 @@
+// src/App.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
@@ -6,7 +7,7 @@ import Contact from "./components/Contact";
 import Summary from "./components/Summary";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
-import RoleSelect from "./components/RoleSelect"; // 👈 Legg til denne
+import RoleSelect from "./components/RoleSelect";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<><Header /><HomePage /></>} />
-          <Route path="/velg-rolle" element={<RoleSelect />} /> {/* 👈 NY SIDE */}
+          <Route path="/velg-rolle" element={<RoleSelect />} />
           <Route path="/questions" element={<Questionnaire />} />
           <Route path="/summary" element={<Summary />} />
           <Route path="/kontakt" element={<Contact />} />

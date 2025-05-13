@@ -1,3 +1,4 @@
+// sanity/schemas/questionnaire.ts
 import { defineType } from "sanity";
 
 export default defineType({
@@ -6,9 +7,19 @@ export default defineType({
   type: "document",
   fields: [
     {
+      name: "order",
+      title: "Rekkefølge",
+      type: "number", // 🔑 brukes for sortering
+      validation: (Rule) => Rule.required().min(1)
+    },
+    {
       name: "title",
       title: "Tittel",
-      type: "string",
+      type: "object",
+      fields: [
+        { name: "nb", title: "Norsk", type: "string" },
+        { name: "en", title: "Engelsk", type: "string" }
+      ]
     },
     {
       name: "questions",
@@ -21,7 +32,11 @@ export default defineType({
             {
               name: "question",
               title: "Spørsmålstekst",
-              type: "string",
+              type: "object",
+              fields: [
+                { name: "nb", title: "Norsk", type: "string" },
+                { name: "en", title: "Engelsk", type: "string" }
+              ]
             },
             {
               name: "options",
@@ -33,43 +48,47 @@ export default defineType({
                   fields: [
                     {
                       name: "label",
-                      title: "Svartekst (f.eks. Ja, Nei)",
-                      type: "string",
+                      title: "Svartekst",
+                      type: "object",
+                      fields: [
+                        { name: "nb", title: "Norsk", type: "string" },
+                        { name: "en", title: "Engelsk", type: "string" }
+                      ]
                     },
-                    {
-                      name: "value",
-                      title: "Intern verdi (f.eks. yes, no)",
-                      type: "string",
-                    },
+                    { name: "value", title: "Verdi", type: "string" },
                     {
                       name: "responseType",
                       title: "Respons-type",
                       type: "string",
                       options: {
                         list: [
-                          { title: "Grønn (fortsett)", value: "green" },
-                          { title: "Gul (forsiktig)", value: "yellow" },
-                          { title: "Rød (stopp)", value: "red" },
-                        ],
-                      },
+                          { title: "Grønn", value: "green" },
+                          { title: "Gul", value: "yellow" },
+                          { title: "Rød", value: "red" }
+                        ]
+                      }
                     },
                     {
                       name: "feedback",
-                      title: "Tilbakemelding / melding",
-                      type: "string",
+                      title: "Tilbakemelding",
+                      type: "object",
+                      fields: [
+                        { name: "nb", title: "Norsk", type: "string" },
+                        { name: "en", title: "Engelsk", type: "string" }
+                      ]
                     },
                     {
                       name: "articleUrl",
-                      title: "Les mer-lenke (valgfritt)",
-                      type: "url",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-  ],
+                      title: "Lenke (valgfri)",
+                      type: "url"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 });

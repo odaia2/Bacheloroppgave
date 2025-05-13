@@ -159,17 +159,17 @@
   cursor: not-allowed;
 }
 
-.progress-bar-container {
+.progress-bar {
   width: 100%;
   height: 6px;
   background-color: #e0e0e0;
   border-radius: 3px;
   margin-bottom: 20px;
-  overflow: hidden;
 }
 
-.progress-bar-fill {
+.progress {
   height: 100%;
-  background-color: #3d8675; /* grønn-blå farge */
-  transition: width 0.3s ease-in-out;
+  background-color: #3D8675;
+  border-radius: 3px;
+  transition: width 0.3s ease;
 }
