@@ -8,6 +8,7 @@ import Summary from "./components/Summary";
 import Layout from "./components/Layout";
 import Header from "./components/Header";
 import RoleSelect from "./components/RoleSelect";
+import Article from "./components/Article";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/questions" element={<Questionnaire />} />
           <Route path="/summary" element={<Summary />} />
           <Route path="/kontakt" element={<Contact />} />
+
+          <Route path="/artikkel" element={<Article />} />
         </Routes>
       </Layout>
     </Router>

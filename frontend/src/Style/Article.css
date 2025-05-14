@@ -1,0 +1,41 @@
+.article-wrapper {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    color: black;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .article-wrapper h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .article-wrapper h2 {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: #155e54;
+  }
+  
+  .article-wrapper ul {
+    margin: 1rem 0;
+    padding-left: 1.2rem;
+  }
+  
+  .article-wrapper li {
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  .back-btn {
+    margin-top: 2rem;
+    padding: 0.5rem 1.2rem;
+    background: #3d8675;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  

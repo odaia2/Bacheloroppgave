@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../../sanity/sanityClient";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import "../Style/Questionnaire.css";
@@ -38,6 +38,9 @@ const Questionnaire = () => {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const restored = location.state as any;
+
   const { i18n } = useTranslation();
   const lang = i18n.language as Lang;
 
@@ -58,7 +61,16 @@ const Questionnaire = () => {
           }
         }`
       )
-      .then((res: Page[]) => setPages(res))
+      .then((res: Page[]) => {
+        setPages(res);
+
+        // Gjenopprett tidligere state hvis det finnes
+        if (restored) {
+          setPageIndex(restored.pageIndex ?? 0);
+          setQuestionIndex(restored.questionIndex ?? 0);
+          setAnswers(restored.answers ?? {});
+        }
+      })
       .catch((err) => console.error("Feil ved henting fra Sanity:", err));
   }, []);
 
@@ -119,8 +131,7 @@ const Questionnaire = () => {
 
       <h1>{currentPage?.title?.[lang] ?? "Uten tittel"}</h1>
       <h2>
-        {lang === "nb" ? "Spørsmål" : "Question"} {questionIndex + 1}{" "}
-        {lang === "nb" ? "av" : "of"} {currentPage?.questions?.length ?? 0}
+        {lang === "nb" ? "Spørsmål" : "Question"} {questionIndex + 1} {lang === "nb" ? "av" : "of"} {currentPage?.questions?.length ?? 0}
       </h2>
 
       <p className="question-instruction">
@@ -131,6 +142,23 @@ const Questionnaire = () => {
 
       <div className="question-text">
         {currentQuestion?.question?.[lang] ?? "Uten spørsmålstekst"}
+
+        <button
+        className="read-more-btn"
+        onClick={() => {
+          navigate("/artikkel", {
+            state: {
+              pageIndex,
+              questionIndex,
+              answers
+            }
+          });
+        }}
+      >
+        Les mer
+      </button>
+
+
       </div>
 
       <div className="options">
