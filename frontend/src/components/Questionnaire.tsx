@@ -4,6 +4,7 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import "../Style/Questionnaire.css";
+import { FiInfo } from "react-icons/fi";
 
 type Lang = "nb" | "en";
 
@@ -141,25 +142,24 @@ const Questionnaire = () => {
       </p>
 
       <div className="question-text">
-        {currentQuestion?.question?.[lang] ?? "Uten spørsmålstekst"}
+  {currentQuestion?.question?.[lang] ?? "Uten spørsmålstekst"}
 
-        <button
-        className="read-more-btn"
-        onClick={() => {
-          navigate("/artikkel", {
-            state: {
-              pageIndex,
-              questionIndex,
-              answers
-            }
-          });
-        }}
-      >
-        Les mer
-      </button>
-
-
-      </div>
+  <button
+    className="info-icon-btn"
+    onClick={() =>
+      navigate("/artikkel", {
+        state: {
+          pageIndex,
+          questionIndex,
+          answers
+        }
+      })
+    }
+    title="Mer informasjon"
+  >
+    <FiInfo size={20} />
+  </button>
+</div>
 
       <div className="options">
         {currentQuestion?.options?.map((option, idx) => (
